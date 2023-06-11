@@ -1,0 +1,148 @@
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-family: poppins;
+}
+
+.root {
+  width: 80vw;
+  margin: 10vh auto;
+}
+
+.lightbox__img {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1000;
+}
+
+.lightbox-bg {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: none;
+}
+
+tbody img {
+  width: 80px;
+  height: 80px;
+  margin: 2%;
+  border-radius: 15px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+tbody span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+  font-size: 30px;
+}
+
+tbody img:hover {
+  filter: brightness(0.2);
+  transition: all ease-in-out 0.4s;
+}
+
+tbody img:hover ~ span {
+  opacity: 100;
+  transition: all ease-in-out 0.4s;
+  pointer-events: none;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table__tbody tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.table__thead tr {
+  background-color: #000;
+  font-weight: 700;
+  color: #fff;
+}
+
+tbody > tr > td:nth-of-type(4) {
+  position: relative;
+}
+
+td {
+  text-align: center;
+  border: #f1f1f1 1px solid;
+  font-weight: 500;
+}
+
+thead button {
+  background-color: #cff102;
+  padding: 5px 15px;
+  margin: 15px;
+  border-radius: 5px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+thead button:hover {
+  transform: rotateY(360deg);
+  transition: ease-in-out 0.4s;
+}
+
+@media (max-width: 950px) {
+  thead td {
+    padding-top: 20px;
+  }
+  thead button {
+    display: block;
+    margin: 15px auto;
+  }
+}
+@media (max-width: 780px) {
+  td {
+    font-size: 14px;
+  }
+  thead td {
+    height: 20px;
+    padding-top: 5px;
+  }
+  thead button {
+    padding: 2px 5px;
+    margin: 7px auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .root {
+    width: 100%;
+    margin: 0 auto;
+  }
+  thead td {
+    font-size: 14px;
+  }
+  thead button {
+    padding: 2px 5px;
+    margin: 7px auto;
+    font-size: 11px;
+    line-height: 14px;
+  }
+  .lightbox__img {
+    width: 95vw;
+  }
+  tbody span {
+    display: none;
+    pointer-events: none;
+  }
+  tbody img:hover ~ span {
+    opacity: 0;
+    display: none;
+  }
+}
